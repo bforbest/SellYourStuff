@@ -8,17 +8,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SellYourStuff.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SellYourStuff.Controllers
 {
     public class ProductController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        [Authorize]
         // GET: Product
         public async Task<ActionResult> Index()
         {
-            return View(await db.Products.ToListAsync());
+            var user = User.Identity.GetUserId();
+            var products = db.Products.Where(o => o.ApplicationUserId == user).ToListAsync();
+            return View(await products);
         }
 
         // GET: Product/Details/5
@@ -35,10 +38,11 @@ namespace SellYourStuff.Controllers
             }
             return View(product);
         }
-
+        [Authorize]
         // GET: Product/Create
         public ActionResult Create()
         {
+            PopulateCategoryDropDownList();
             return View();
         }
 
@@ -47,15 +51,16 @@ namespace SellYourStuff.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Price,Image,PublishedDate,ApplicationUserId,CategoryId")] Product product)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Price,Image,PublishedDate,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.ApplicationUserId = User.Identity.GetUserId();
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            PopulateCategoryDropDownList(product.CategoryId);
             return View(product);
         }
 
@@ -71,6 +76,7 @@ namespace SellYourStuff.Controllers
             {
                 return HttpNotFound();
             }
+            PopulateCategoryDropDownList(product.CategoryId);
             return View(product);
         }
 
@@ -123,6 +129,13 @@ namespace SellYourStuff.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private void PopulateCategoryDropDownList(object selectedCategory = null)
+        {
+            var categorysQuery = from d in db.Catogeries
+                                 orderby d.Title
+                                 select d;
+            ViewBag.CategoryId = new SelectList(categorysQuery, "Id", "Title", selectedCategory);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace SellYourStuff.Models
 		public int Price { get; set; }
 		public string Image { get; set; }
 		public DateTime PublishedDate { get; set; }
-		public int ApplicationUserId { get; set; }
+		public string ApplicationUserId { get; set; }
 		public virtual ApplicationUser ApplicationUser { get; set; }
 		public int CategoryId { get; set; }
 		public virtual ICollection<Category> Categories { get; set; }
