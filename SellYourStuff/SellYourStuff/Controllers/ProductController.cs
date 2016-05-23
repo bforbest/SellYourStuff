@@ -51,12 +51,14 @@ namespace SellYourStuff.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Price,Image,PublishedDate,CategoryId")] Product product)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Price,Image,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
                 product.ApplicationUserId = User.Identity.GetUserId();
-                db.Products.Add(product);
+				product.PublishedDate = DateTime.Now;
+
+				db.Products.Add(product);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -89,8 +91,9 @@ namespace SellYourStuff.Controllers
         {
             if (ModelState.IsValid)
             {
+				
                 db.Entry(product).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+				await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(product);
