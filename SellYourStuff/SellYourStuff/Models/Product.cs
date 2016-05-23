@@ -16,9 +16,10 @@ namespace SellYourStuff.Models
 		[StringLength(1000, ErrorMessage = "Title should be between 100-1000.", MinimumLength = 100)]
 		public string Description { get; set; }
 		[Required]
+		
 		public int Price { get; set; }
 		public string Image { get; set; }
-		public DateTime PublishedDate { get; set; }
+		public DateTime PublishedDate { get; set; }/* = DateTime.Now;*/
 		public string ApplicationUserId { get; set; }
 		public virtual ApplicationUser ApplicationUser { get; set; }
 		public int CategoryId { get; set; }
