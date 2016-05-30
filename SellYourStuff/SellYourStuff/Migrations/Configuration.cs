@@ -9,9 +9,10 @@ namespace SellYourStuff.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "SellYourStuff.Models.ApplicationDbContext";
         }
-
+          
         protected override void Seed(SellYourStuff.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
