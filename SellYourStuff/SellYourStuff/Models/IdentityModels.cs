@@ -23,7 +23,7 @@ namespace SellYourStuff.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("SellYourItems", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
@@ -33,5 +33,6 @@ namespace SellYourStuff.Models
         }
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Category> Catogeries { get; set; }
+        public DbSet<Message> Messages { get; set; }
 	}
 }

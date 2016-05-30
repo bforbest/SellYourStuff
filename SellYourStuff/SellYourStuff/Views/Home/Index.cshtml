@@ -2,6 +2,151 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="row widget-bg-color-white no-space margin-bottom-20">
+    <div class="col-md-3 col-sm-6 no-space">
+        <!-- BEGIN WIDGET SUBSCRIBE -->
+        <div class="widget-subscribe widget-subscribe-quote widget-bg-color-purple">
+            <h2 class="widget-subscribe-title widget-title-color-purple-dark text-uppercase">
+                Så fungerar det 
+            </h2>
+            <p class="widget-subscribe-subtitle widget-title-color-purple-light">
+                Sök och hitta det du söker för!<br/>
+                Eller bli av med onöjdiga saker
+                <a class="widget-subscribe-subtitle-link" href="#">check out</a>
+            </p>
+        </div>
+        <!-- END WIDGET SUBSCRIBE -->
+    </div>
+    <div class="col-md-3 col-sm-6 no-space">
+        <!-- BEGIN WIDGET SUBSCRIBE -->
+        <div class="widget-subscribe">
+            <span class="widget-subscribe-no">1</span>
+            <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
+                Hitta
+                <br /> produkt
+            </h2>
+            <p class="widget-subscribe-subtitle widget-title-color-dark-light">
+                Sök bland alla arikler och hitta det du söker för
+                <a class="widget-subscribe-subtitle-link" href="#">Mer</a>
+            </p>
+        </div>
+        <!-- END WIDGET SUBSCRIBE -->
+    </div>
+    <div class="col-md-3 col-sm-6 no-space">
+        <!-- BEGIN WIDGET SUBSCRIBE -->
+        <div class="widget-subscribe widget-subscribe-border">
+            <span class="widget-subscribe-no">2</span>
+            <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
+                Kontakta
+                <br /> Säljaren
+            </h2>
+            <p class="widget-subscribe-subtitle widget-title-color-dark-light">
+                Ta kontakt med köparen eller be köparen kontakta dif
+                <a class="widget-subscribe-subtitle-link" href="#">mer</a>
+            </p>
+        </div>
+        <!-- END WIDGET SUBSCRIBE -->
+    </div>
+    <div class="col-md-3 col-sm-6 no-space">
+        <!-- BEGIN WIDGET SUBSCRIBE -->
+        <div class="widget-subscribe widget-subscribe-border-top">
+            <span class="widget-subscribe-no">3</span>
+            <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
+                Hämta
+                <br /> din fynd
+            </h2>
+            <p class="widget-subscribe-subtitle widget-title-color-dark-light">
+                Genomför affären med säljaren och hämta din artikel
+                <a class="widget-subscribe-subtitle-link" href="#">learn more</a>
+            </p>
+        </div>
+        <!-- END WIDGET SUBSCRIBE -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Nav tabs --><div class="card">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="container-fluid">
+                        <div class="container container-pad" id="property-listings">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1>Million Dollar Home Listings</h1>
+                                    <p>A snippet I recently used to display homes for a local brokerage.  Focused more on images when accessed through mobile</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                            @for (int i = 0; i < 5; i++)
+                            {
+
+                           
+                            <div class="col-sm-6">
+
+                                    <!-- Begin Listing: 609 W GRAVERS LN-->
+                                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                                        <div class="media">
+                                            <a class="pull-left" href="#" target="_parent">
+                                                <img alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg">
+                                            </a>
+
+                                            <div class="clearfix visible-sm"></div>
+
+                                            <div class="media-body fnt-smaller">
+                                                <a href="#" target="_parent"></a>
+
+                                                <h4 class="media-heading">
+                                                    <a href="#" target="_parent">$1,975,000 <small class="pull-right">609 W Gravers Ln</small></a>
+                                                </h4>
+
+
+                                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                                    <li>4,820 SqFt</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Beds</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Baths</li>
+                                                </ul>
+
+                                                <p class="hidden-xs">
+                                                    Situated between fairmount
+                                                    park and the prestigious philadelphia cricket
+                                                    club, this beautiful 2+ acre property is truly
+                                                    ...
+                                                </p><span class="fnt-smaller fnt-lighter fnt-arial">
+                                                    Courtesy of HS Fox & Roach-Chestnut Hill
+                                                    Evergreen
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- End Listing-->
+                                </div><!-- End Col -->
+                            }
+                            </div><!-- End row -->
+                        </div><!-- End container -->
+                    </div>
+                <div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+                <div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                <div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
