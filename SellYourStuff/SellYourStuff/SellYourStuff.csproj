@@ -173,6 +173,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,14 @@
     <Compile Include="Migrations\201605291859534_Message.cs" />
     <Compile Include="Migrations\201605291859534_Message.Designer.cs">
       <DependentUpon>201605291859534_Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605301140423_Applicationuserid added to Message model.cs" />
+    <Compile Include="Migrations\201605301140423_Applicationuserid added to Message model.Designer.cs">
+      <DependentUpon>201605301140423_Applicationuserid added to Message model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605310842051_message sender.cs" />
+    <Compile Include="Migrations\201605310842051_message sender.Designer.cs">
+      <DependentUpon>201605310842051_message sender.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -267,6 +276,11 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_TopMenu.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Message\Delete.cshtml" />
+    <Content Include="Views\Message\Details.cshtml" />
+    <Content Include="Views\Message\Edit.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -286,6 +300,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605291859534_Message.resx">
       <DependentUpon>201605291859534_Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605301140423_Applicationuserid added to Message model.resx">
+      <DependentUpon>201605301140423_Applicationuserid added to Message model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605310842051_message sender.resx">
+      <DependentUpon>201605310842051_message sender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
