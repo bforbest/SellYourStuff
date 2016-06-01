@@ -16,12 +16,14 @@ namespace SellYourStuff.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Message
+        [HttpPost]
         public ActionResult Index()
         {
             //var messages = db.Messages.Include(m => m.ApplicationUser);
+            db.Configuration.ProxyCreationEnabled = false;
             var user = User.Identity.GetUserId();
-            var messages = db.Messages.Include(m=>m.ApplicationUser).Where(o=>o.ApplicationUserId== user);
-            return View(messages.ToList());
+            var messages = db.Messages.Include(m=>m.Sender).Where(o=>o.ApplicationUserId== user);
+            return Json(messages.ToList());
         }
 
         // GET: Message/Details/5
