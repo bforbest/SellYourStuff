@@ -38,6 +38,8 @@
                     alert('no data send');
                 }
                 else {
+                    $('#divMessage').empty();
+                    var div2Content = '';
                     var div1Content = '<table class="table">'+
                    '<tr>'+
                         '<th>' + '@Email'+
@@ -49,10 +51,11 @@
                         '</tr>';
                     var div3Content = '';
                     for (var i = 0; i < data.length; i++) {
-                        div3Content += '<tr>' + '<td>' + '<a href="#">' + data[i].Sender.Email +'</a>' + '</td>';
+                        div3Content += '<tr>' + '<td>' + '<a href="#div'+i+'" onclick="show('+'\'div'+i+'\')" >' + data[i].Sender.Email +'</a>' + '</td>';
                         div3Content += '<td>' + data[i].Subject +  '</td>';
                         div3Content += '<td>' + data[i].DateRecieved +  '</td>' + '</tr>';// if Name is property of your Person object
                         //div3Content += '<p>' + data[i].Id + '</p>';
+                        div3Content += '<tr id="div'+i+'" style="display:none;">' + '<td colspan="3">' + data[i].MessageRecieved + '</td>' + '</tr>';
                     }
                   
                     $('#divMessage').append(div1Content + div3Content + '</table>');
@@ -64,3 +67,7 @@
     });//on input
     
 });//document.ready
+
+function show(target) {
+    document.getElementById(target).style.display = 'table-row';
+}

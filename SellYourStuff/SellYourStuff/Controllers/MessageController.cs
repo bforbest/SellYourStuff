@@ -22,7 +22,7 @@ namespace SellYourStuff.Controllers
             //var messages = db.Messages.Include(m => m.ApplicationUser);
             db.Configuration.ProxyCreationEnabled = false;
             var user = User.Identity.GetUserId();
-            var messages = db.Messages.Include(m=>m.Sender).Where(o=>o.ApplicationUserId== user);
+            var messages = db.Messages.Include(m=>m.Sender).Where(o=>o.ApplicationUserId== user).OrderByDescending(o=>o.DateRecieved);
             return Json(messages.ToList());
         }
 

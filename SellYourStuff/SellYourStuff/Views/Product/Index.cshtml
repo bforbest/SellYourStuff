@@ -6,64 +6,33 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.PublishedDate)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationUserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </th>
-        <th></th>
-    </tr>
+</p>*@
+<div class="row">
+    @foreach (var item in Model)
+    {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.PublishedDate)*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicationUserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="..." onerror="this.src = 'http://placehold.it/350x250'">
+                <div class="caption">
+                    @if (item.Title.Length > 15)
+                    {
+                    <h3>@item.Title.Substring(0, 15) ...</h3>
+                    }
+                    else
+                    {
+                        <h3>@item.Title</h3>
+                    }
+                    <p>@(item.Description.Substring(0, 30))</p>
+                    <p> <a href="@Url.Action("Details", new { id=item.Id })" class="btn btn-default" role="button">Visa Produkt</a></p>
+                </div>
+            </div>
+        </div>
 
-</table>
+    }
+</div>
+
+
+
