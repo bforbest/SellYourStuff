@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -193,6 +194,10 @@
     <Compile Include="Migrations\201605310842051_message sender.cs" />
     <Compile Include="Migrations\201605310842051_message sender.Designer.cs">
       <DependentUpon>201605310842051_message sender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606030936425_changed categories to category in product.cs" />
+    <Compile Include="Migrations\201606030936425_changed categories to category in product.Designer.cs">
+      <DependentUpon>201606030936425_changed categories to category in product.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -282,10 +287,13 @@
     <Content Include="Views\Message\Edit.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Shared\_MessageListView.cshtml" />
+    <Content Include="Views\Message\ShowAll.cshtml" />
+    <Content Include="Views\Product\MyProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -307,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605310842051_message sender.resx">
       <DependentUpon>201605310842051_message sender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606030936425_changed categories to category in product.resx">
+      <DependentUpon>201606030936425_changed categories to category in product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

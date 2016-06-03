@@ -17,11 +17,43 @@ namespace SellYourStuff.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         [Authorize]
         // GET: Product
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? SelectedCategory, string searchString)
+        {
+            var categories = db.Catogeries.OrderBy(q => q.Title).ToList();
+            ViewBag.SelectedCategory = new SelectList(categories, "Id", "Title", SelectedCategory);
+            int categoryId = SelectedCategory.GetValueOrDefault();
+            var products = 
+                db.Products
+                .Where((c => !SelectedCategory.HasValue || c.CategoryId == categoryId))
+                .OrderBy(d => d.CategoryId)
+                .Include(d => d.Category);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(o => o.Title.ToLower().StartsWith(searchString.ToLower()));
+            }
+            return View(await products.ToListAsync());
+        }
+        public async Task<ActionResult> MyProducts()
         {
             var user = User.Identity.GetUserId();
             var products = db.Products.Where(o => o.ApplicationUserId == user).ToListAsync();
             return View(await products);
+        }
+        public ActionResult Search(string searchString)
+        {
+            IQueryable<Product> matches;
+            if (String.IsNullOrEmpty(searchString))
+            {
+                matches = db.Products;
+            }
+            else
+            {
+                matches = db.Products.Where(o => o.Title.ToLower().StartsWith(searchString.ToLower()));
+            }
+            if (matches.Count() > 0)
+                return Json(matches, JsonRequestBehavior.AllowGet);
+            else
+                return Json("No matches found", JsonRequestBehavior.AllowGet);
         }
 
         // GET: Product/Details/5

@@ -71,3 +71,16 @@
 function show(target) {
     document.getElementById(target).style.display = 'table-row';
 }
+
+function showMessage(target, len, userAppId) {
+    for (var i = 1; i < len+1; i++) {
+        document.getElementById('id' + i).style.display = 'none';
+        
+    }
+    document.getElementById(target).style.display = 'block';
+    document.getElementById("userId").value = userAppId;
+    
+}
+function changeValue(o) {
+    document.getElementById('userId').value = o.innerHTML;
+}

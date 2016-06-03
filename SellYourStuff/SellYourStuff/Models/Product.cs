@@ -23,7 +23,7 @@ namespace SellYourStuff.Models
 		public string ApplicationUserId { get; set; }
 		public virtual ApplicationUser ApplicationUser { get; set; }
 		public int CategoryId { get; set; }
-		public virtual ICollection<Category> Categories { get; set; }
+		public virtual Category Category { get; set; }
 
 	}
 }

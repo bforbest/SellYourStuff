@@ -21649,3 +21649,10 @@ Custom color buttons
 img#item-display {
     max-height: 318px;
 }
+
+/** 
+    well custom
+    **/
+.well-lg {
+    background: #acc1da;
+}

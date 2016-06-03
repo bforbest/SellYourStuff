@@ -26,6 +26,14 @@ namespace SellYourStuff.Controllers
             return Json(messages.ToList());
         }
 
+        public ActionResult ShowAll()
+        {
+            //var messages = db.Messages.Include(m => m.ApplicationUser);
+            db.Configuration.ProxyCreationEnabled = false;
+            var user = User.Identity.GetUserId();
+            var messages = db.Messages.Include(m => m.Sender).Where(o => o.ApplicationUserId == user).OrderByDescending(o => o.DateRecieved);
+            return View(messages.ToList());
+        }
         // GET: Message/Details/5
         public ActionResult Details(int? id)
         {
