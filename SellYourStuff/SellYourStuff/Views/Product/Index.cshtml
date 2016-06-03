@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="well-lg">
+@*<div class="well-lg">
     <div class="row">
         @using (Html.BeginForm())
         {
@@ -16,12 +16,12 @@
 
                     </div>
                     @Html.DropDownList("SelectedCategory", null, "All Products", htmlAttributes: new { @onchange = "form.submit();", @class = "form-control" })
-                </div><!-- /input-group -->
+                </div> /input-group 
             </div>
             }
         </div>
-</div>
-<hr>
+</div>*@
+
 <div class="row">
     @foreach (var item in Model)
     {

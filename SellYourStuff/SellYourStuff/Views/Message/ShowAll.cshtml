@@ -5,14 +5,6 @@
     int counter = 0;
     int counter2 = 0;
 }
-
-<h2>ShowAll</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-    
-</p>
-
 <div class="col-md-6">
     <div class="bootcards-list">
         <div class="panel panel-default">
@@ -21,7 +13,7 @@
                 {
                     
                     string divid = "id" + ++counter;
-                    <a class="list-group-item" href="#" onclick="showMessage('@divid', @Model.Count(),'@item.SenderId')">
+                    <a class="list-group-item" href="#" onclick="showMessage('@divid', @Model.Count(),'@item.SenderId','@item.IsSeen')">
                         <h4 class="list-group-item-heading">@Html.DisplayFor(modelItem => item.Subject)</h4>
                         <p class="list-group-item-text">@Html.DisplayFor(modelItem => item.Sender.Email)</p>
                     </a>
@@ -38,13 +30,13 @@
     {
         string divid = "id" + ++counter2;
         <div id="@divid" style="display:none;"><div class="panel-heading clearfix">
-            <h3 class="panel-title pull-left">Base Card Title</h3>
+            <h3 class="panel-title pull-left">Message Box</h3>
             @*<a class="btn btn-primary pull-right" href="#">
 
                 <i class="fa fa-pencil"></i>
                 Edit
             </a>*@
-           <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="getbootstrap">Ask a question</button>
+           <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="getbootstrap">Reply</button>
         </div>
         <div class="list-group">
             <div class="list-group-item">

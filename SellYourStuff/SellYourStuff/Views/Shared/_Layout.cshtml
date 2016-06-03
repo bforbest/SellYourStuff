@@ -12,7 +12,9 @@
 <body>
     <div class="main">
     @Html.Partial("_NavBar")
+        
     <div class="container body-content">
+        @{Html.RenderAction("SearchPartial", "Product");}
         @RenderBody()
         <hr />
         <footer>

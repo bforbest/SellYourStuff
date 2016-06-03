@@ -9,13 +9,14 @@ using System.Web;
 using System.Web.Mvc;
 using SellYourStuff.Models;
 using Microsoft.AspNet.Identity;
+using SellYourStuff.ModelViews;
 
 namespace SellYourStuff.Controllers
 {
     public class ProductController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        [Authorize]
+
         // GET: Product
         public async Task<ActionResult> Index(int? SelectedCategory, string searchString)
         {
@@ -33,29 +34,22 @@ namespace SellYourStuff.Controllers
             }
             return View(await products.ToListAsync());
         }
+
+        [Authorize]
         public async Task<ActionResult> MyProducts()
         {
             var user = User.Identity.GetUserId();
             var products = db.Products.Where(o => o.ApplicationUserId == user).ToListAsync();
             return View(await products);
         }
-        public ActionResult Search(string searchString)
+        [ChildActionOnly]
+        public ActionResult SearchPartial(int? SelectedCategory)
         {
-            IQueryable<Product> matches;
-            if (String.IsNullOrEmpty(searchString))
-            {
-                matches = db.Products;
-            }
-            else
-            {
-                matches = db.Products.Where(o => o.Title.ToLower().StartsWith(searchString.ToLower()));
-            }
-            if (matches.Count() > 0)
-                return Json(matches, JsonRequestBehavior.AllowGet);
-            else
-                return Json("No matches found", JsonRequestBehavior.AllowGet);
+            var categories = db.Catogeries.OrderBy(q => q.Title).ToList();
+            SearchView searchView = new SearchView();
+            searchView.dropDown = new SelectList(categories, "Id", "Title", SelectedCategory);
+            return PartialView("_SearchPartial",searchView);
         }
-
         // GET: Product/Details/5
         public async Task<ActionResult> Details(int? id)
         {
