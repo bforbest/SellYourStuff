@@ -63,114 +63,57 @@
         <!-- END WIDGET SUBSCRIBE -->
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-12">
-        <!-- Nav tabs --><div class="card">
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">
-                    <div class="container-fluid">
-                        <div class="container container-pad" id="property-listings">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>Million Dollar Home Listings</h1>
-                                    <p>A snippet I recently used to display homes for a local brokerage.  Focused more on images when accessed through mobile</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                            @for (int i = 0; i < 5; i++)
-                            {
-
-                           
-                            <div class="col-sm-6">
-
-                                    <!-- Begin Listing: 609 W GRAVERS LN-->
-                                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-                                        <div class="media">
-                                            <a class="pull-left" href="#" target="_parent">
-                                                <img alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg">
-                                            </a>
-
-                                            <div class="clearfix visible-sm"></div>
-
-                                            <div class="media-body fnt-smaller">
-                                                <a href="#" target="_parent"></a>
-
-                                                <h4 class="media-heading">
-                                                    <a href="#" target="_parent">$1,975,000 <small class="pull-right">609 W Gravers Ln</small></a>
-                                                </h4>
-
-
-                                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                                                    <li>4,820 SqFt</li>
-
-                                                    <li style="list-style: none">|</li>
-
-                                                    <li>5 Beds</li>
-
-                                                    <li style="list-style: none">|</li>
-
-                                                    <li>5 Baths</li>
-                                                </ul>
-
-                                                <p class="hidden-xs">
-                                                    Situated between fairmount
-                                                    park and the prestigious philadelphia cricket
-                                                    club, this beautiful 2+ acre property is truly
-                                                    ...
-                                                </p><span class="fnt-smaller fnt-lighter fnt-arial">
-                                                    Courtesy of HS Fox & Roach-Chestnut Hill
-                                                    Evergreen
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Listing-->
-                                </div><!-- End Col -->
-                            }
-                            </div><!-- End row -->
-                        </div><!-- End container -->
-                    </div>
-                <div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
-                <div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                <div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
+<div class="panel panel-default bootcards-summary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Categories</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a class="bootcards-summary-item" href="/contacts" data-pjax="#main" data-title="Contacts" style="padding-top:35px;">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h4>
+                        Contacts
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </h4>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a class="bootcards-summary-item" href="/companies" data-pjax="#main" data-title="Companies" style="padding-top:35px;">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h4>
+                        Companies
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </h4>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a class="bootcards-summary-item" href="/notes" data-pjax="#main" data-title="Notes" style="padding-top:35px;">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h4>
+                        Notes
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </h4>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a class="bootcards-summary-item active" href="/charts" data-pjax="#main" data-title="Charts" style="padding-top:35px;">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h4>
+                        Charts
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </h4>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a class="bootcards-summary-item" href="#" style="padding-top:35px;">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h4>
+                        Files
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </h4>
+                </a>
             </div>
         </div>
-    </div>
-</div>
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
