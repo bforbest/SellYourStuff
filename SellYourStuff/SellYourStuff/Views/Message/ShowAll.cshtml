@@ -11,9 +11,13 @@
             <div class="list-group">
                 @foreach (var item in Model)
                 {
-                    
+                    var css = "";
+                    if (!item.IsSeen)
+                    {
+                        css = "NotSeen";
+                    }
                     string divid = "id" + ++counter;
-                    <a class="list-group-item" href="#" onclick="showMessage('@divid', @Model.Count(),'@item.SenderId','@item.IsSeen')">
+                    <a class="list-group-item @css" href="#" onclick="showMessage('@divid', @Model.Count(),'@item.SenderId','@item.Id')">
                         <h4 class="list-group-item-heading">@Html.DisplayFor(modelItem => item.Subject)</h4>
                         <p class="list-group-item-text">@Html.DisplayFor(modelItem => item.Sender.Email)</p>
                     </a>

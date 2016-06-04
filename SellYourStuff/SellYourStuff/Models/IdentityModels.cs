@@ -18,6 +18,7 @@ namespace SellYourStuff.Models
             return userIdentity;
         }
         public virtual ICollection<Product> Products { get; set; }
+        public virtual Region region { set; get; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -34,5 +35,7 @@ namespace SellYourStuff.Models
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Category> Catogeries { get; set; }
         public DbSet<Message> Messages { get; set; }
-	}
+
+        public System.Data.Entity.DbSet<SellYourStuff.Models.Region> Regions { get; set; }
+    }
 }

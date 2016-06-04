@@ -6,7 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link href="http://jvectormap.com/css/jquery-jvectormap-2.0.3.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+   
 
 </head>
 <body>
@@ -27,6 +29,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @Html.Partial("_MessageListView")
-    
+    <script src="http://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js" type="text/javascript"></script>
+    <script src="http://jvectormap.com/js/jquery-jvectormap-se-mill.js" type="text/javascript"></script>
 </body>
 </html>

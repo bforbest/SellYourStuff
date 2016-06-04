@@ -72,14 +72,25 @@ function show(target) {
     document.getElementById(target).style.display = 'table-row';
 }
 
-function showMessage(target, len, userAppId, isSeen) {
-    for (var i = 1; i < len+1; i++) {
+function showMessage(target, len, userAppId, id) {
+    for (var i = 1; i < len + 1; i++) {
         document.getElementById('id' + i).style.display = 'none';
-        
+        document.getElementById
     }
+    $(".list-group-item").removeClass("NotSeen");
     document.getElementById(target).style.display = 'block';
     document.getElementById("userId").value = userAppId;
-    
+    $.ajax({
+        method:'post',
+        url: '/Message/Seen',
+        data: { id: id },
+        dataType: 'json',
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('Något gick fel! status:' + textStatus + "\nerror: " + errorThrown);
+        }
+    }).done(function () {
+       
+    });
 }
 function changeValue(o) {
     document.getElementById('userId').value = o.innerHTML;

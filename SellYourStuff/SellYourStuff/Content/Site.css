@@ -18239,3 +18239,7 @@ img#item-display {
     text-decoration: none;
     background: #eee;
 }
+
+a.list-group-item.NotSeen {
+    background: beige;
+}

@@ -166,5 +166,7 @@ namespace SellYourStuff.Controllers
                                  select d;
             ViewBag.CategoryId = new SelectList(categorysQuery, "Id", "Title", selectedCategory);
         }
+
+
     }
 }

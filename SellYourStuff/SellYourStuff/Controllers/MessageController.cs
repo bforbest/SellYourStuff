@@ -110,5 +110,15 @@ namespace SellYourStuff.Controllers
             }
             base.Dispose(disposing);
         }
+
+         [HttpPost]
+        public ActionResult Seen(int id)
+        {
+            var user = User.Identity.GetUserId();
+            var message = db.Messages.Where(o=>o.Id==id).First();
+            message.IsSeen = true;
+            db.SaveChanges();
+            return Json(0);
+        }
     }
 }
