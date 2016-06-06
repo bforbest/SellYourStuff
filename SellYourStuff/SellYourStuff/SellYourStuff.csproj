@@ -175,31 +175,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605250917562_InitialCreate.cs" />
-    <Compile Include="Migrations\201605250917562_InitialCreate.Designer.cs">
-      <DependentUpon>201605250917562_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605291859534_Message.cs" />
-    <Compile Include="Migrations\201605291859534_Message.Designer.cs">
-      <DependentUpon>201605291859534_Message.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605301140423_Applicationuserid added to Message model.cs" />
-    <Compile Include="Migrations\201605301140423_Applicationuserid added to Message model.Designer.cs">
-      <DependentUpon>201605301140423_Applicationuserid added to Message model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605310842051_message sender.cs" />
-    <Compile Include="Migrations\201605310842051_message sender.Designer.cs">
-      <DependentUpon>201605310842051_message sender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606030936425_changed categories to category in product.cs" />
-    <Compile Include="Migrations\201606030936425_changed categories to category in product.Designer.cs">
-      <DependentUpon>201606030936425_changed categories to category in product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606041346178_Region.cs" />
-    <Compile Include="Migrations\201606041346178_Region.Designer.cs">
-      <DependentUpon>201606041346178_Region.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -311,26 +286,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605250917562_InitialCreate.resx">
-      <DependentUpon>201605250917562_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605291859534_Message.resx">
-      <DependentUpon>201605291859534_Message.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605301140423_Applicationuserid added to Message model.resx">
-      <DependentUpon>201605301140423_Applicationuserid added to Message model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605310842051_message sender.resx">
-      <DependentUpon>201605310842051_message sender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606030936425_changed categories to category in product.resx">
-      <DependentUpon>201606030936425_changed categories to category in product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606041346178_Region.resx">
-      <DependentUpon>201606041346178_Region.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

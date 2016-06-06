@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SellYourStuff.Models
 {
@@ -79,6 +80,13 @@ namespace SellYourStuff.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "Your must provide a PhoneNumber")]
+
+        [Phone]
+        [Display(Name = "Phone Number")]
+        public string Number { get; set; }
+        public int RegionId { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SellYourStuff.Models
 {
@@ -17,8 +19,11 @@ namespace SellYourStuff.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public virtual ICollection<Product> Products { get; set; }
-        public virtual Region region { set; get; }
+        //[ForeignKey("ProductId")]
+        //public int ProductId { get; set; }
+        //public virtual ICollection<Product> Products { get; set; }
+        //[ForeignKey("Region")]
+        public int RegionId { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -36,6 +41,6 @@ namespace SellYourStuff.Models
 		public DbSet<Category> Catogeries { get; set; }
         public DbSet<Message> Messages { get; set; }
 
-        public System.Data.Entity.DbSet<SellYourStuff.Models.Region> Regions { get; set; }
+        public DbSet<Region> Regions { get; set; }
     }
 }

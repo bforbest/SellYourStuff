@@ -139,9 +139,10 @@ namespace SellYourStuff.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            PopulateCategoryDropDownList();
             return View();
         }
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         //
         // POST: /Account/Register
         [HttpPost]
@@ -149,19 +150,22 @@ namespace SellYourStuff.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber=model.Number, RegionId = model.RegionId };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                PopulateCategoryDropDownList(model.RegionId);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -170,6 +174,15 @@ namespace SellYourStuff.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+        
+        private void PopulateCategoryDropDownList(object selectedRegionName = null)
+        {
+            
+        var regionsQuery = from d in db.Regions
+                                 orderby d.RegionName
+                                 select d;
+            ViewBag.RegionId = new SelectList(regionsQuery, "Id", "RegionName", selectedRegionName);
         }
 
         //
