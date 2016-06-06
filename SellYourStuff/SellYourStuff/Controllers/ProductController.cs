@@ -20,6 +20,7 @@ namespace SellYourStuff.Controllers
         // GET: Product
         public async Task<ActionResult> Index(int? SelectedCategory, string searchString)
         {
+
             var categories = db.Catogeries.OrderBy(q => q.Title).ToList();
             ViewBag.SelectedCategory = new SelectList(categories, "Id", "Title", SelectedCategory);
             int categoryId = SelectedCategory.GetValueOrDefault();
