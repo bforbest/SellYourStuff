@@ -22,8 +22,10 @@ namespace SellYourStuff.Models
         //[ForeignKey("ProductId")]
         //public int ProductId { get; set; }
         //public virtual ICollection<Product> Products { get; set; }
-        //[ForeignKey("Region")]
+        
         public int RegionId { get; set; }
+        [ForeignKey("RegionId")]
+        public virtual Region Region { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
