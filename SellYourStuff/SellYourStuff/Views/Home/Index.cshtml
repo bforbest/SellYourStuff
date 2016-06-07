@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row widget-bg-color-white no-space margin-bottom-20">
+<div class="col-md-8 widget-bg-color-white no-space margin-bottom-20">
     <div class="col-md-3 col-sm-6 no-space">
         <!-- BEGIN WIDGET SUBSCRIBE -->
         <div class="widget-subscribe widget-subscribe-quote widget-bg-color-purple">
@@ -63,57 +63,67 @@
         <!-- END WIDGET SUBSCRIBE -->
     </div>
 </div>
-<div class="panel panel-default bootcards-summary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Categories</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <a class="bootcards-summary-item" href="/contacts" data-pjax="#main" data-title="Contacts" style="padding-top:35px;">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <h4>
-                        Contacts
-                        <span class="glyphicon glyphicon-arrow-right"></span>
-                    </h4>
-                </a>
+<div class="col-md-4">
+    Click the dot on the left to choose whole sweden
+    <div id="vmap" style="width: 300px; height: 600px;"></div>
+
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <div class="panel panel-default bootcards-summary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Categories</h3>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <a class="bootcards-summary-item" href="/companies" data-pjax="#main" data-title="Companies" style="padding-top:35px;">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <h4>
-                        Companies
-                        <span class="glyphicon glyphicon-arrow-right"></span>
-                    </h4>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <a class="bootcards-summary-item" href="/notes" data-pjax="#main" data-title="Notes" style="padding-top:35px;">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <h4>
-                        Notes
-                        <span class="glyphicon glyphicon-arrow-right"></span>
-                    </h4>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <a class="bootcards-summary-item active" href="/charts" data-pjax="#main" data-title="Charts" style="padding-top:35px;">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <h4>
-                        Charts
-                        <span class="glyphicon glyphicon-arrow-right"></span>
-                    </h4>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <a class="bootcards-summary-item" href="#" style="padding-top:35px;">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <h4>
-                        Files
-                        <span class="glyphicon glyphicon-arrow-right"></span>
-                    </h4>
-                </a>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <a class="bootcards-summary-item" href="/contacts" data-pjax="#main" data-title="Contacts" style="padding-top:35px;">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <h4>
+                                Contacts
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <a class="bootcards-summary-item" href="/companies" data-pjax="#main" data-title="Companies" style="padding-top:35px;">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <h4>
+                                Companies
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <a class="bootcards-summary-item" href="/notes" data-pjax="#main" data-title="Notes" style="padding-top:35px;">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <h4>
+                                Notes
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <a class="bootcards-summary-item active" href="/charts" data-pjax="#main" data-title="Charts" style="padding-top:35px;">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <h4>
+                                Charts
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <a class="bootcards-summary-item" href="#" style="padding-top:35px;">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <h4>
+                                Files
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </h4>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
 </div>

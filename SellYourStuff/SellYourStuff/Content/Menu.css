@@ -138,7 +138,7 @@ Page Header
     /* Toggle */
     /* User */ }
     .page-header .top-menu .nav .open > a {
-      background: #ebeef6; }
+      background: #F1F3FA; }
       .page-header .top-menu .nav .open > a:hover, .page-header .top-menu .nav .open > a:focus {
         background: #ebeef6; }
     .page-header .top-menu .navbar-nav {
@@ -268,7 +268,9 @@ Page Header
         color: #c0cddc; }
     .page-header .top-menu .dropdown-user .dropdown-toggle {
       padding: 12px 10px;
-      line-height: 0; }
+      line-height: 0;
+      background: transparent;
+    }
       .page-header .top-menu .dropdown-user .dropdown-toggle .dropdown-user-inner {
         background: #fff;
         padding-left: 8px; }

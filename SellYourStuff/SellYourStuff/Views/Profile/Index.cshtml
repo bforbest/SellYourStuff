@@ -3,6 +3,66 @@
     ViewBag.Title = "Index";
 }
 
-@Model.Number
-@Model.Email
+<section class="container">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Email</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+
+                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-512.png" class="img-circle img-responsive"> </div>
+                    <br />
+                    <div class="col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>@Model.Email</td>
+                                </tr>
+                                <tr>
+                                    <td> Phone number </td>
+                                    <td>
+                                       @Model.Number
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Region</td>
+                                    <td>@Model.Region.RegionName</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model.Products)
+        {
+
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="@Html.DisplayFor(modelItem => item.Image)" alt="..." onerror="this.src = 'http://placehold.it/350x250'">
+                    <div class="caption">
+                        @if (item.Title.Length > 15)
+                        {
+                            <h3>@item.Title.Substring(0, 15) ...</h3>
+                        }
+                        else
+                        {
+                            <h3>@item.Title</h3>
+                        }
+                        <p>@(item.Description.Substring(0, 30))</p>
+                        <p> <a href="@Url.Action("Details","Product", new { id=item.Id })" class="btn btn-default" role="button">Visa Produkt</a></p>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</section>
+
+
 

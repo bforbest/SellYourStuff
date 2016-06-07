@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201606071051020_new try.Designer.cs">
       <DependentUpon>201606071051020_new try.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606071509043_lat.cs" />
+    <Compile Include="Migrations\201606071509043_lat.Designer.cs">
+      <DependentUpon>201606071509043_lat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -216,6 +220,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\modextra.pubxml" />
     <None Include="Properties\PublishProfiles\SellYourStuff.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom.js" />
@@ -321,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606071051020_new try.resx">
       <DependentUpon>201606071051020_new try.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606071509043_lat.resx">
+      <DependentUpon>201606071509043_lat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

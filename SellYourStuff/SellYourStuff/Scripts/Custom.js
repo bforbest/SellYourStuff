@@ -99,14 +99,15 @@ function changeValue(o) {
             $(document).ready(function()
             {
                 var markers = [
-        { latLng: [61.3543, 18.1454], name: 'Whole Sweden' }
+        { latLng: [67.3543, 12.1454], name: 'Whole Sweden', text:'Whole sweden is chosen' }
                 ];
                 var map =    $('#vmap').vectorMap(
                     {
                         map: 'se_mill',
                         markers: markers,
                         onMarkerClick: function (e, index) {
-                            $('#text').text(markers[index].text);
+                            $('#textMap').text(markers[index].text);
+                            $.bootstrapGrowl(markers[index].text);
                             $.ajax({
                                 method: 'post',
                                 url: '/Product/RegionCookie',
@@ -122,11 +123,12 @@ function changeValue(o) {
                             });
                         },
                         backgroundColor: 'transparent',
-                        enableZoom: true,
+                        enableZoom: false,
+                        zoomButtons: false,
                         regionsSelectable: true,
                         regionsSelectableOne: true,
                         
-                        zoomOnScroll: true,
+                        zoomOnScroll: false,
                         regionStyle: {
                             initial: {
                                 fill: '#8d8d8d',
@@ -141,6 +143,11 @@ function changeValue(o) {
                         {
                             var map = $('#vmap').vectorMap('get', 'mapObject');
                             var name = map.getRegionName(code);
+                            $('#textMap').text(name + " is chosen");
+                            $.bootstrapGrowl(name + "is chosen");
+                            if(code=='0')
+                            $map.clearSelectedMarkers();
+                            
                             var message = 'You clicked "' + name + '" which has the code: ' + code.toUpperCase();
                             $.ajax({
                                 method: 'post',
@@ -156,7 +163,42 @@ function changeValue(o) {
                             }).done(function () {
 
                             });
-                        }
+                        },
+                        onMarkerLabelShow: function (event, label, code) {
+                            label.html("<p style=\"color:red;\">" + label.html() + "</p>");
+                        },
+                        labels: {
+
+                            markers: {
+                                render: function (code) {
+                                    if (code == '0') {
+                                        return "Sweden";
+                                    }
+                                   
+                                }
+                            }
+                        },
+                        markerStyle: {
+                            initial: {
+                                fill: 'lightblue',
+                                stroke: 'red',
+                                "fill-opacity": 1,
+                                "stroke-width": 2,
+                                r: 10
+                            },
+                            hover: {
+                                fill: 'blue',
+                                stroke: 'red',
+                                "stroke-width": 2,
+                                cursor: 'pointer'
+                            },
+                            selected: {
+                                fill: 'red',
+                                stroke: 'red',
+                            },
+                            selectedHover: {}
+                        },
+                            
                     });
             
             });
