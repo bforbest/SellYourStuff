@@ -7,13 +7,13 @@ namespace SellYourStuff.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class changedcategoriestocategoryinproduct : IMigrationMetadata
+    public sealed partial class newtry : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changedcategoriestocategoryinproduct));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newtry));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606030936425_changed categories to category in product"; }
+            get { return "201606071051020_new try"; }
         }
         
         string IMigrationMetadata.Source

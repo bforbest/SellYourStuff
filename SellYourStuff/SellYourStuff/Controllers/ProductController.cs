@@ -120,6 +120,40 @@ namespace SellYourStuff.Controllers
             PopulateCategoryDropDownList(product.CategoryId);
             return View(product);
         }
+        [HttpPost]
+        public ActionResult AddToFavList(int? id)
+        {
+            string message = "";
+            ApplicationDbContext db = new ApplicationDbContext();
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(o => o.Id == currentUserId);
+            var fav = db.FavLists.Where(o => o.ApplicationUserID == currentUserId).FirstOrDefault();
+            var product = db.Products.Find(id);
+            if (fav==null)
+            {
+                List<Product> prodList = new List<Product>();
+                prodList.Add(product); 
+                  db.FavLists.Add(new FavList { ApplicationUserID = currentUserId, Products = prodList });
+                message = "Added to favorite list";
+            }
+            else
+            {
+                if (fav.Products.Contains(product))
+                {
+                    message = "Already in your favorite list";
+                }
+                else
+                {
+
+                    fav.Products.Add(product);
+                    message = "Added to favorite list";
+                }
+            }
+                            
+            
+            db.SaveChanges();
+            return Json(message);
+        }
 
         // GET: Product/Edit/5
         public async Task<ActionResult> Edit(int? id)

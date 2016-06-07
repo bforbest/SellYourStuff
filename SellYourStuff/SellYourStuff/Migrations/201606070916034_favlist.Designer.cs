@@ -7,13 +7,13 @@ namespace SellYourStuff.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ApplicationuseridaddedtoMessagemodel : IMigrationMetadata
+    public sealed partial class favlist : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ApplicationuseridaddedtoMessagemodel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(favlist));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605301140423_Applicationuserid added to Message model"; }
+            get { return "201606070916034_favlist"; }
         }
         
         string IMigrationMetadata.Source

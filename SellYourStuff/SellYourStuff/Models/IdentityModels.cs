@@ -44,5 +44,7 @@ namespace SellYourStuff.Models
         public DbSet<Message> Messages { get; set; }
 
         public DbSet<Region> Regions { get; set; }
+        public DbSet<FavList> FavLists { get; set; }
+
     }
 }

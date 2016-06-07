@@ -160,3 +160,24 @@ function changeValue(o) {
                     });
             
             });
+
+            function AddToFav(id) {
+              
+                $.ajax({
+                    method: 'post',
+                    url: '/Product/AddToFavList',
+                    data: { id: id },
+                    dataType: 'json',
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Något gick fel! status:' + textStatus + "\nerror: " + errorThrown);
+                    },
+                        success: function (data) {
+                            if (data === undefined)
+                                $('#favlistmessage').html(data);
+                            else
+                                $('#favlistmessage').html(data );
+                        }
+                }).done(function () {
+
+                });
+            }

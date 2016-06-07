@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SellYourStuff.Models.Product>
+
+@{
+    ViewBag.Title = "FavoriteList";
+}
+
+<h2>FavoriteList</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="..." onerror="this.src = 'http://placehold.it/350x250'">
+                <div class="caption">
+                    @if (item.Title.Length > 15)
+                    {
+                        <h3>@item.Title.Substring(0, 15) ...</h3>
+                    }
+                    else
+                    {
+                        <h3>@item.Title</h3>
+                    }
+                    <p>@(item.Description.Substring(0, 30))</p>
+                    <p> <a href="@Url.Action("Details","Product", new { id=item.Id })" class="btn btn-default" role="button">Visa Produkt</a></p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FavListId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FavListId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FavListId })
+        </td>
+    </tr>
+}
+
+</table>*@
