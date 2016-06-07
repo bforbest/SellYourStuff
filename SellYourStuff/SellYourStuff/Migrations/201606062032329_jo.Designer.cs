@@ -7,13 +7,13 @@ namespace SellYourStuff.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Region : IMigrationMetadata
+    public sealed partial class jo : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Region));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(jo));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606041346178_Region"; }
+            get { return "201606062032329_jo"; }
         }
         
         string IMigrationMetadata.Source

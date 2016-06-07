@@ -95,3 +95,68 @@ function showMessage(target, len, userAppId, id) {
 function changeValue(o) {
     document.getElementById('userId').value = o.innerHTML;
 }
+
+            $(document).ready(function()
+            {
+                var markers = [
+        { latLng: [61.3543, 18.1454], name: 'Whole Sweden' }
+                ];
+                var map =    $('#vmap').vectorMap(
+                    {
+                        map: 'se_mill',
+                        markers: markers,
+                        onMarkerClick: function (e, index) {
+                            $('#text').text(markers[index].text);
+                            $.ajax({
+                                method: 'post',
+                                url: '/Product/RegionCookie',
+                                data: {
+                                    regionName: "Sweden",
+                                },
+                                dataType: 'json',
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    alert('Något gick fel! status:' + textStatus + "\nerror: " + errorThrown);
+                                }
+                            }).done(function () {
+
+                            });
+                        },
+                        backgroundColor: 'transparent',
+                        enableZoom: true,
+                        regionsSelectable: true,
+                        regionsSelectableOne: true,
+                        
+                        zoomOnScroll: true,
+                        regionStyle: {
+                            initial: {
+                                fill: '#8d8d8d',
+                            
+                            },
+                        
+                            selected: {
+                                fill: '#acc1da'
+                            }
+                        },
+                        onRegionClick: function(event,code)
+                        {
+                            var map = $('#vmap').vectorMap('get', 'mapObject');
+                            var name = map.getRegionName(code);
+                            var message = 'You clicked "' + name + '" which has the code: ' + code.toUpperCase();
+                            $.ajax({
+                                method: 'post',
+                                url: '/Product/RegionCookie',
+                                data: {
+                                    code: code,
+                                    regionName: name,
+                                },
+                                dataType: 'json',
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    alert('Något gick fel! status:' + textStatus + "\nerror: " + errorThrown);
+                                }
+                            }).done(function () {
+
+                            });
+                        }
+                    });
+            
+            });

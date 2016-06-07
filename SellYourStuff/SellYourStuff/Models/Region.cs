@@ -11,5 +11,6 @@ namespace SellYourStuff.Models
         public int Id { get; set; }
         public string RegionCode { get; set; }
         public string RegionName { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

@@ -33,7 +33,35 @@ namespace SellYourStuff.Controllers
             {
                 products = products.Where(o => o.Title.ToLower().StartsWith(searchString.ToLower()));
             }
+            string cName = "regionCookie";
+            HttpCookie cookie = Request.Cookies[cName];
+            if (cookie != null)
+                {
+                    string message = Server.UrlDecode(
+                        Request.Cookies[cName].Value);
+                if (message != "Sweden")
+                {
+                    products = products.Where(o => o.ApplicationUser.Region.RegionName == message);
+                }
+            }
+
             return View(await products.ToListAsync());
+        }
+
+        [HttpPost]
+        public ActionResult RegionCookie(string regionName)
+        {
+            string cName = "regionCookie";
+            HttpCookie cookie = Request.Cookies[cName];
+            if (!String.IsNullOrEmpty(regionName))
+            {
+                Response.Cookies[cName].Value =
+                        Server.UrlEncode(regionName);
+                Response.Cookies[cName].Expires =
+                    DateTime.Now.AddDays(10);
+
+            }
+            return Json(0);
         }
 
         [Authorize]

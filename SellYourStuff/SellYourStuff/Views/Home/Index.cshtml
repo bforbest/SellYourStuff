@@ -63,7 +63,6 @@
         <!-- END WIDGET SUBSCRIBE -->
     </div>
 </div>
-<div id="vmap" style="width: 400px; height: 600px;"></div>
 <div class="panel panel-default bootcards-summary">
     <div class="panel-heading">
         <h3 class="panel-title">Categories</h3>
@@ -118,59 +117,3 @@
         </div>
     </div>
 </div>
-
-
-
-<script type="text/javascript">
-            $(document).ready(function()
-            {
-            var map =    $('#vmap').vectorMap(
-                {
-                    map: 'se_mill',
-                    backgroundColor: 'transparent',
-                    enableZoom: false,
-                    regionsSelectable: true,
-                    regionsSelectableOne: true,
-                    backgroundColor: 'transparent',
-                    
-                    zoomMax: 1,
-                    zoomMin: 1,
-                    zoomOnScroll: false,
-                    regionStyle: {
-                        initial: {
-                            fill: '#8d8d8d',
-                            
-                        },
-                        
-                            selected: {
-                                fill: '#acc1da'
-                }
-                    },
-                    onRegionClick: function(event,code)
-                    {
-                        var map = $('#vmap').vectorMap('get', 'mapObject');
-                        var name = map.getRegionName(code);
-                        var message = 'You clicked "' + name + '" which has the code: ' + code.toUpperCase();
-                        $.ajax({
-                            method: 'post',
-                            url: '/Region/Create',
-                            data: {
-                                code: code,
-                                regionName: name,
-                            },
-                            dataType: 'json',
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                alert('Något gick fel! status:' + textStatus + "\nerror: " + errorThrown);
-                            }
-                        }).done(function () {
-
-                        });
-                        alert(message);
-                    }
-                });
-            
-            });
-
-
-
-</script>

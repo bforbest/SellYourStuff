@@ -18243,3 +18243,11 @@ img#item-display {
 a.list-group-item.NotSeen {
     background: beige;
 }
+
+.jvectormap-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+}
