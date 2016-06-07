@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SellYourStuff.Models;
 using Microsoft.AspNet.Identity;
+using SellYourStuff.ModelViews;
 
 namespace SellYourStuff.Controllers
 {
@@ -16,11 +17,16 @@ namespace SellYourStuff.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Profile
-        public ActionResult Index(int? id)
+        public ActionResult Index(string id)
         {
-            string currentUserId = User.Identity.GetUserId();
-            ApplicationUser currentUser = db.Users.FirstOrDefault(o => o.Id == currentUserId);
-            return View();
+            //string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(o => o.Id == id);
+            var p = new ProfileViewModel();
+            p.Email = currentUser.Email;
+            p.Number = currentUser.PhoneNumber;
+            p.Products = db.Products.Where(o => o.ApplicationUserId == id).ToList();
+            p.Region = currentUser.Region;
+            return View(p);
         }
 
         public ActionResult FavoriteList()
