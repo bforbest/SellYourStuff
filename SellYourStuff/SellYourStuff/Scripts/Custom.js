@@ -200,7 +200,22 @@ function changeValue(o) {
                         },
                             
                     });
-            
+
+                $.ajax({
+                    url: '/Message/MessageCount',
+                    dataType: 'json',
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Något gick fel! status:' + textStatus + "\nerror: " + errorThrown);
+                    },
+                    success: function (data) {
+                        var el = document.getElementById('messageCount');
+                        var x = el.dataset.message - 0;
+                        el.innerHTML = x;
+                        $('#messageCount').html(data);
+                    }
+                }).done(function () {
+
+                });            
             });
 
             function AddToFav(id) {
@@ -222,4 +237,29 @@ function changeValue(o) {
                 }).done(function () {
 
                 });
+                
             }
+//reddit api
+
+            $('#btn').click(function () {
+                $('#text').text('Loading...');
+
+                $.ajax({
+                    type: "GET",
+                    /* data:{
+                           q:"puppy",
+                           restrict_sr:"true",
+                     },*/
+                    url: "http://www.reddit.com/r/aww/search.json?q=girl&restrict_sr=true",/* ?q=puppy&restrict_sr=true */
+                    success: function (response) {
+                        $('#text').html("");
+                        var children = response.data.children;
+                        for (var i = 0; i < children.length; i++) {
+                            var src = children[i].data.thumbnail;
+                            $('#text').append('<img src= "' + src + '"/>');
+                        }
+                    }
+                });
+            });
+
+           

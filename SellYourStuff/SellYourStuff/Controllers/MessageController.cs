@@ -120,5 +120,12 @@ namespace SellYourStuff.Controllers
             db.SaveChanges();
             return Json(0);
         }
+
+        public ActionResult MessageCount()
+        {
+            var user = User.Identity.GetUserId();
+            var unSeenMessages = db.Messages.Where(o => o.ApplicationUserId == user).Where(o => o.IsSeen == false).Count();
+            return Json(unSeenMessages, JsonRequestBehavior.AllowGet);
+        }
     }
 }

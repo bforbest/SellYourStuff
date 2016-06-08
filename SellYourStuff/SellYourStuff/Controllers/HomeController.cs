@@ -15,6 +15,10 @@ namespace SellYourStuff.Controllers
             var products = db.Products.Take(10);
 			return View(products.ToList());
 		}
+        public ActionResult Reddit()
+        {
+            return View();
+        }
 
 		public ActionResult About()
 		{
