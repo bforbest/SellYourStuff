@@ -27,6 +27,8 @@
                     }
                     <p>@(item.Description.Substring(0, 30))</p>
                     <p> <a href="@Url.Action("Details", new { id=item.Id })" class="btn btn-default" role="button">Visa Produkt</a></p>
+                    <p> <a href="@Url.Action("Delete", new { id=item.Id })" class="btn btn-default" role="button">Visa Produkt</a></p>
+                    
                 </div>
             </div>
         </div>

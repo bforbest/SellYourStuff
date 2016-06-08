@@ -22,9 +22,10 @@
         <div class="product-desc">@Html.DisplayFor(model => model.Description)</div>
         <hr>
         <div class="product-price">$ @Html.DisplayFor(model => model.Price)</div>
+        
         <hr>
         <div class="btn-group cart">
-            @Html.ActionLink("Seller Profile","Index","Profile",new { id=Model.ApplicationUserId},null)
+            @Html.ActionLink("Seller Profile","Index","Profile",new { id=Model.ApplicationUserId}, new { @class = "btn btn-info glyphicon"})
 
         </div>
         <div class="btn-group wishlist">

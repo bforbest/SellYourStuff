@@ -13,7 +13,7 @@ namespace SellYourStuff.Models
 		[StringLength(100,ErrorMessage ="Title should be between 2-100. ",MinimumLength=2)]
 		public string Title { get; set; }
 		[Required]
-		[StringLength(1000, ErrorMessage = "Title should be between 100-1000.", MinimumLength = 100)]
+		[StringLength(1000, ErrorMessage = "Title should be between 100-1000.", MinimumLength = 10)]
 		public string Description { get; set; }
 		[Required]
 		

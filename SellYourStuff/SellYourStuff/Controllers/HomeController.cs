@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SellYourStuff.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,11 @@ namespace SellYourStuff.Controllers
 {
 	public class HomeController : Controller
 	{
-		public ActionResult Index()
+        private ApplicationDbContext db = new ApplicationDbContext();
+        public ActionResult Index()
 		{
-			return View();
+            var products = db.Products.Take(10);
+			return View(products.ToList());
 		}
 
 		public ActionResult About()

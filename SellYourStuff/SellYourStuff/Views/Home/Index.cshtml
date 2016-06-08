@@ -1,73 +1,101 @@
-﻿@{
+﻿@model IEnumerable<SellYourStuff.Models.Product>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="col-md-8 widget-bg-color-white no-space margin-bottom-20">
-    <div class="col-md-3 col-sm-6 no-space">
-        <!-- BEGIN WIDGET SUBSCRIBE -->
-        <div class="widget-subscribe widget-subscribe-quote widget-bg-color-purple">
-            <h2 class="widget-subscribe-title widget-title-color-purple-dark text-uppercase">
-                Så fungerar det 
-            </h2>
-            <p class="widget-subscribe-subtitle widget-title-color-purple-light">
-                Sök och hitta det du söker för!<br/>
-                Eller bli av med onöjdiga saker
-                <a class="widget-subscribe-subtitle-link" href="#">check out</a>
-            </p>
+<section class="col-md-8">
+    <div class="col-md-8 widget-bg-color-white no-space margin-bottom-20">
+        <div class="col-md-3 col-sm-6 no-space">
+            <!-- BEGIN WIDGET SUBSCRIBE -->
+            <div class="widget-subscribe widget-subscribe-quote widget-bg-color-purple">
+                <h2 class="widget-subscribe-title widget-title-color-purple-dark text-uppercase">
+                    Så fungerar det
+                </h2>
+                <p class="widget-subscribe-subtitle widget-title-color-purple-light">
+                    Sök och hitta det du söker för!<br />
+                    Eller bli av med onöjdiga saker
+                    <a class="widget-subscribe-subtitle-link" href="#">check out</a>
+                </p>
+            </div>
+            <!-- END WIDGET SUBSCRIBE -->
         </div>
-        <!-- END WIDGET SUBSCRIBE -->
-    </div>
-    <div class="col-md-3 col-sm-6 no-space">
-        <!-- BEGIN WIDGET SUBSCRIBE -->
-        <div class="widget-subscribe">
-            <span class="widget-subscribe-no">1</span>
-            <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
-                Hitta
-                <br /> produkt
-            </h2>
-            <p class="widget-subscribe-subtitle widget-title-color-dark-light">
-                Sök bland alla arikler och hitta det du söker för
-                <a class="widget-subscribe-subtitle-link" href="#">Mer</a>
-            </p>
+        <div class="col-md-3 col-sm-6 no-space">
+            <!-- BEGIN WIDGET SUBSCRIBE -->
+            <div class="widget-subscribe">
+                <span class="widget-subscribe-no">1</span>
+                <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
+                    Hitta
+                    <br /> produkt
+                </h2>
+                <p class="widget-subscribe-subtitle widget-title-color-dark-light">
+                    Sök bland alla arikler och hitta det du söker för
+                    <a class="widget-subscribe-subtitle-link" href="#">Mer</a>
+                </p>
+            </div>
+            <!-- END WIDGET SUBSCRIBE -->
         </div>
-        <!-- END WIDGET SUBSCRIBE -->
-    </div>
-    <div class="col-md-3 col-sm-6 no-space">
-        <!-- BEGIN WIDGET SUBSCRIBE -->
-        <div class="widget-subscribe widget-subscribe-border">
-            <span class="widget-subscribe-no">2</span>
-            <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
-                Kontakta
-                <br /> Säljaren
-            </h2>
-            <p class="widget-subscribe-subtitle widget-title-color-dark-light">
-                Ta kontakt med köparen eller be köparen kontakta dif
-                <a class="widget-subscribe-subtitle-link" href="#">mer</a>
-            </p>
+        <div class="col-md-3 col-sm-6 no-space">
+            <!-- BEGIN WIDGET SUBSCRIBE -->
+            <div class="widget-subscribe widget-subscribe-border">
+                <span class="widget-subscribe-no">2</span>
+                <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
+                    Kontakta
+                    <br /> Säljaren
+                </h2>
+                <p class="widget-subscribe-subtitle widget-title-color-dark-light">
+                    Ta kontakt med köparen eller be köparen kontakta dif
+                    <a class="widget-subscribe-subtitle-link" href="#">mer</a>
+                </p>
+            </div>
+            <!-- END WIDGET SUBSCRIBE -->
         </div>
-        <!-- END WIDGET SUBSCRIBE -->
-    </div>
-    <div class="col-md-3 col-sm-6 no-space">
-        <!-- BEGIN WIDGET SUBSCRIBE -->
-        <div class="widget-subscribe widget-subscribe-border-top">
-            <span class="widget-subscribe-no">3</span>
-            <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
-                Hämta
-                <br /> din fynd
-            </h2>
-            <p class="widget-subscribe-subtitle widget-title-color-dark-light">
-                Genomför affären med säljaren och hämta din artikel
-                <a class="widget-subscribe-subtitle-link" href="#">learn more</a>
-            </p>
+        <div class="col-md-3 col-sm-6 no-space">
+            <!-- BEGIN WIDGET SUBSCRIBE -->
+            <div class="widget-subscribe widget-subscribe-border-top">
+                <span class="widget-subscribe-no">3</span>
+                <h2 class="widget-subscribe-title widget-title-color-gray-dark text-uppercase">
+                    Hämta
+                    <br /> din fynd
+                </h2>
+                <p class="widget-subscribe-subtitle widget-title-color-dark-light">
+                    Genomför affären med säljaren och hämta din artikel
+                    <a class="widget-subscribe-subtitle-link" href="#">learn more</a>
+                </p>
+            </div>
+            <!-- END WIDGET SUBSCRIBE -->
         </div>
-        <!-- END WIDGET SUBSCRIBE -->
     </div>
+    <div class="col-md-12">
+        @foreach (var item in Model)
+    {
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="..." onerror="this.src = 'http://placehold.it/350x250'">
+                <div class="caption">
+                    @if (item.Title.Length > 15)
+                    {
+                        <h3>@item.Title.Substring(0, 15) ...</h3>
+                    }
+                    else
+                    {
+                        <h3>@item.Title</h3>
+                    }
+                    <p>@(item.Description.Substring(0, 30))</p>
+                    <p> <a href="@Url.Action("Details", new { id=item.Id })" class="btn btn-default" role="button">Visa Produkt</a></p>
+                </div>
+            </div>
+        </div>
+
+    }
 </div>
-<div class="col-md-4">
+</section>
+<section class="col-md-4">
     Click the dot on the left to choose whole sweden
     <div id="vmap" style="width: 300px; height: 600px;"></div>
 
-</div>
+</section>
 <div class="row">
     <div class="col-md-7">
         <div class="panel panel-default bootcards-summary">
